@@ -1,0 +1,33 @@
+{% include "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    
+    <style>
+        main {
+          
+          background-color: #ffffff;
+          padding-top: 30px;
+          padding-left: 15%;
+        }
+    </style>
+</head>
+    
+<body>  
+    <main role="main">
+        <h3> Result from the model is:
+            <br>
+            {% if pred %} The document were written by the same writer
+            {% else %} The document were written by a different writer {% endif %} </h3>
+
+    </main>
+    <img src= {{img1 }} >
+    <img src= {{img2 }} >
+
+    
+</body>
+
+</html>

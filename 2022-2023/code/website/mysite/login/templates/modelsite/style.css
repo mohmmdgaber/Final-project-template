@@ -1,0 +1,15 @@
+.grid-container{
+display: grid;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    margin: 0  0 auto;
+}
+.grid-item{
+justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.body{
+background-color:blue;}

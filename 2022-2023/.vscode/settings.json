@@ -1,0 +1,6 @@
+{
+    "jupyter.kernels.filter": [
+    
+    ],
+    "jupyter.experimental.kernelPickerType": "OnlyOneTypeOfKernel"
+}

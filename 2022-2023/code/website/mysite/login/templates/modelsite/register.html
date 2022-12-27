@@ -1,0 +1,39 @@
+{% include "loginreg.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+
+</head>
+<body>
+    <main>
+        <h1>Registration</h1>
+     {% for message in messages %}
+        <p style="color:red" id="messages"> <b> {{message}} </b></p>
+     {% endfor %}
+    <form action="regsubmit" method="post">
+        <div class="cust_container">
+        {% csrf_token %}
+            <br>
+            <p>Please fill in this form to create an account.</p>
+            <br>
+            <label for="username">username</label>
+            <input type="text" placeholder="Enter username" name="username" id="username" required>
+            <br><br>
+            <label for="psw">password</label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+            <br><br>
+            <button type="submit" class="registerbtn">Register</button>
+            <div class="SignIn">
+                <br><br>
+                <p>Already have an account? <a href="login">Sign in</a>.</p>
+            </div>
+        </div>
+ 
+        </form>
+    </main>
+
+
+    </body>
+</html>

@@ -1,0 +1,45 @@
+{% include "loginreg.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+    <main>
+    <h1 class="class1"> Login to your account </h1>
+    <br>
+    <br>
+    <form action="loginsubmit" method="post">
+        <div class="cust_container">
+        {% csrf_token %}
+
+            {% for message in messages %}
+                {% if message.level == 40 %}
+                <br>
+                <!-- error message -->
+                <p style="color:red;" id="messages"> <b> {{message}} </b></p>
+                {% else %}
+                <!-- success -->
+                <p style="color:rgb(32, 209, 71)" id="messages"> <b> {{message}} </b></p>
+                {% endif %}
+            {% endfor %}
+            <label for="username">username</label>
+            <input type="text" placeholder="Enter username" name="username" id="username" required>
+            <br>
+            <br>
+            <label for="psw">password</label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+            <br>
+            <br>
+            <button type="submit" class="loginbtn">Login</button>
+            </div>
+            <div class="register">
+                <br><br>
+                <p>Don't have an account? <a href="register"> Register </a></p>
+            </div>
+        </div>
+    </form>
+</main>
+</body>
+</html>

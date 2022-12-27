@@ -1,0 +1,95 @@
+{% include "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+
+    <style>
+        
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            /*border-bottom: 1px solid #ddd;*/
+            /*border-bottom: 1px solid #88bdbd;   */
+            margin-left: auto;
+            margin-right: auto;
+            align-self: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        table td, table th {
+            border: 1px solid #88bdbd;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            
+        }
+        table tr:first-child th {
+            border-top: 0;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            
+        }
+        table tr:last-child td {
+            border-bottom: 0;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        table tr td:first-child,
+        table tr th:first-child {
+            border-left: 0;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        table tr td:last-child,
+        table tr th:last-child {
+            border-right: 0;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .class1 {
+            text-align: center;
+            padding-top: 30px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        </style>
+
+</head>
+<body>
+    <h2 class="class1"> View and delete users</h1>
+        <br><br>
+
+        {% for message in messages %}
+        <p class="class1" style="color:rgb(32, 209, 71)" id="messages"> <b> {{message}} </b></p>
+        {% endfor %}
+        <br>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Is admin</th>
+                <th scope="col">Delete user</th>
+            </tr>
+        </thead>
+        {% for user in users %}
+        <tr>
+
+        <td><div class="grid-item">{{ user.username }} </div></td>
+            <td>{{ user.is_superuser }}</td>
+
+                    <td><a href="{% url 'deleteUser' user.username %}"> Delete </a> </td>
+
+        </tr>
+
+        {% endfor %}
+    </table>
+    </div>
+
+</body>
+</html>

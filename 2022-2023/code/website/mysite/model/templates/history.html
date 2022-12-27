@@ -1,0 +1,63 @@
+{% include "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results history</title>
+
+
+
+    <style>
+        
+        table {
+          border-collapse: collapse;
+          width: 70%;
+          /*border-bottom: 1px solid #ddd;*/
+          border: 1px solid;
+          margin-left: auto;
+          margin-right: auto;
+          align-self: center;
+          font-family: 'Montserrat', sans-serif;
+        }
+        
+        th, td {
+          padding: 8px;
+          text-align: center;
+          border: 
+          1px solid;
+          font-family: 'Montserrat', sans-serif;
+        }
+
+        .class1 {
+            text-align: center;
+            padding-top: 30px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        </style>
+
+</head>
+<body>
+
+    <h2 class="class1"> Results history </h2>
+    <br>
+    <table>
+        <tr>
+          <th>Result</th>
+          <th>First Image</th>
+          <th>Second Image</th>
+        </tr>
+        {% for c in compare %}
+        <tr>
+          <td> <b>
+            {% if c.result %} Same writer
+            {% else %} Different writer
+            {% endif %} </b></td>
+          
+          <td><img src= "/media/{{c.image1 }}" width="30%" height="30%"></td>
+          <td><img src= "/media/{{c.image2 }}" width="30%" height="30%" ></td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br><br>
+</body>
+</html>

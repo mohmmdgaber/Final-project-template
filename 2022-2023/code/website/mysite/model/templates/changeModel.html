@@ -1,0 +1,50 @@
+{% include "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <style>
+        main {
+          
+          background-color: #ffffff;
+          padding-top: 30px;
+          padding-left: 15%;
+        }
+    </style>
+</head>
+    
+<body>  
+
+  <main role="main" class="container" style="padding-top: 10px;">
+    <h2> Upload a new model</h2>
+    <br>
+    <p> Please notice, the model should be in h5 format </p>
+    <form method = "post" enctype="multipart/form-data" action='changeModelSubmit'>
+        {% csrf_token %}
+        
+        {% for message in messages %}
+            {% if message.level == 40 %}
+            <br>
+            <!-- error message -->
+              <p style="color:red; font-size:1vw" id="messages"> <b> {{message}} </b></p>
+            {% else %}
+            <!-- success -->
+              <p style="color:rgb(32, 209, 71)" id="messages"> <b> {{message}} </b></p>
+            {% endif %}
+        {% endfor %}
+        <br>
+        <label for="img1">Upload model:</label>
+        <input type="file" id="model" name="model" accept=".h5">
+        <br>
+
+      
+        <button type="submit" class="sumbit">Upload</button>
+       
+
+    </form>
+  </main>
+</body>
+
+</html>
